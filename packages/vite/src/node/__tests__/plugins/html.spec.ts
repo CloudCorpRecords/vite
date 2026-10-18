@@ -3,9 +3,9 @@ import { describe, expect, test, vi } from 'vitest'
 import { assetPlugin } from '../../plugins/asset'
 import { buildHtmlPlugin } from '../../plugins/html'
 
-// __dirname exists on disk, so reading it as a file throws EISDIR,
+// The fixture dir exists on disk, so reading it as a file throws EISDIR,
 // which is exactly what the old code did for a query-only href.
-const fixtureDir = path.resolve(__dirname)
+const fixtureDir = import.meta.dirname
 
 function createConfig(): any {
   return {
